@@ -30,7 +30,7 @@ def music_genre(data=None):
     pred = model.predict(test_data)
     pred = pred.ravel()
     print("prediction : {}".format(pred[0]))
-    print("genre name : " + str(genre[pred[0]]))
+    print("genre name : {}".format(genre[pred[0]]))
 
     classname.append(genre[pred[0]])
     print(classname[0])
