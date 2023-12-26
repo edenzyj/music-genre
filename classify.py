@@ -37,7 +37,7 @@ def music_genre(data=None):
 
 
 def generate_sentence():
-    print("sentence : " + str(sentence.get(classname[0])))
+    print("sentence : {}".format(sentence.get(classname[0])))
     #return str(sentence.get(classname[0]))
     return_string = "A man is dancing popping."
     return return_string
