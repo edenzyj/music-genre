@@ -49,6 +49,7 @@ def on_message(client, userdata, msg):
     samples = json.loads(msg.payload)
     ODF_name = msg.topic.split('//')[1]
     if ODF_funcs.get(ODF_name):
+        print("recieve data from iottalk")
         ODF_data = samples['samples'][0][1]
         ODF_funcs[ODF_name](ODF_data)
     else:
