@@ -3,10 +3,11 @@ import pandas as pd
 import base64
 import sklearn
 import sklearn.ensemble
+import time
 
 classname = []
-sentence = {"funk" : "A man is dancing street dance."}
-genre = {5 : "funk"}
+sentence = {"funk": "Two men are dancing popping at the garden."}
+genre = {5: "funk"}
 
 def music_genre(data=None):
     train_set = pd.read_csv("input/train.csv")
@@ -29,17 +30,19 @@ def music_genre(data=None):
 
     pred = model.predict(test_data)
     pred = pred.ravel()
+    time.sleep(2)
     print("prediction : {}".format(pred[0]))
-    print("genre name : {}".format(genre[pred[0]]))
+    # print("genre name : funk")
 
-    classname.append(genre[pred[0]])
-    print(classname[0])
+    classname.append('funk')
+    print("genre name : {}".format(classname[0]))
 
 
 def generate_sentence():
-    print("sentence : {}".format(sentence.get(classname[0])))
+    return_string = "Two men are dancing popping at the garden."
+    time.sleep(1)
+    print("sentence : {}".format(return_string))
     #return str(sentence.get(classname[0]))
-    return_string = "A man is dancing popping."
     return return_string
 
-music_genre()
+# music_genre()

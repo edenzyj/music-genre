@@ -32,5 +32,5 @@ def Sentence_I():
 
 def MP3_O(data:list):
     have_recieved.append(1)
-    print(have_recieved[0])
+    #print(have_recieved[0])
     classify.music_genre(data)
