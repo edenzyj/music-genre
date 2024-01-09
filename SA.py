@@ -19,7 +19,6 @@ def on_register(r):
     print('Server: {}\nDevice name: {}\nRegister successfully.'.format(r['server'], r['d_name']))
 
 have_recieved = []
-filename = '/home/zyj/Module-class/damo-vilab/output/test.mp4'
 
 def Sentence_I():
     # print(len(have_recieved))
