@@ -24,7 +24,7 @@ filename = '/home/zyj/Module-class/damo-vilab/output/test.mp4'
 def Sentence_I():
     # print(len(have_recieved))
     if len(have_recieved) == 0 : return None
-    print(classify.classname[0])
+    # print(classify.classname[0])
     have_recieved.clear()
     return_string = classify.generate_sentence()
     classify.classname.clear()

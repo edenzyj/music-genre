@@ -6,7 +6,7 @@ import sklearn.ensemble
 import time
 
 classname = []
-sentence = {"funk": "Two men are dancing popping at the garden."}
+sentence = {"funk": "Two men are dancing popping in the garden."}
 genre = {5: "funk"}
 
 def music_genre(data=None):
@@ -30,17 +30,17 @@ def music_genre(data=None):
 
     pred = model.predict(test_data)
     pred = pred.ravel()
-    time.sleep(2)
+    time.sleep(1)
     print("prediction : {}".format(pred[0]))
     # print("genre name : funk")
 
-    classname.append('funk')
-    print("genre name : {}".format(classname[0]))
+    classname.append("funk")
+    print("genre name : {}".format(classname))
 
 
 def generate_sentence():
-    return_string = "Two men are dancing popping at the garden."
-    time.sleep(1)
+    return_string = "Two men are dancing popping in the garden."
+    time.sleep(5)
     print("sentence : {}".format(return_string))
     #return str(sentence.get(classname[0]))
     return return_string

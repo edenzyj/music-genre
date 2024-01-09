@@ -88,6 +88,15 @@ if MQTT_broker:
     mqttc.loop_start()
 
 def DF_function_handler():
+    if not MQTT_broker: 
+        for odf in ODF_list:
+            if not ODF_funcs.get(odf): 
+                print('ODF function "{}" is not existed.'.format(odf))
+                continue
+            ODF_data = DAN.pull(odf)
+            if ODF_data == None: continue
+            ODF_funcs.get(odf)(ODF_data)
+            time.sleep(0.001)
     for idf in IDF_list:
         if not IDF_funcs.get(idf): 
             print('IDF function "{}" is not existed.'.format(idf))
@@ -98,15 +107,6 @@ def DF_function_handler():
         if MQTT_broker: mqtt_pub(mqttc, device_id, idf, IDF_data)
         else: DAN.push(idf, IDF_data)
         time.sleep(0.001)
-    if not MQTT_broker: 
-        for odf in ODF_list:
-            if not ODF_funcs.get(odf): 
-                print('ODF function "{}" is not existed.'.format(odf))
-                continue
-            ODF_data = DAN.pull(odf)
-            if ODF_data == None: continue
-            ODF_funcs.get(odf)(ODF_data)
-            time.sleep(0.001)
 
 def ExceptionHandler(err):
     if isinstance(err, KeyboardInterrupt):
